@@ -14,9 +14,9 @@ function myFunktion(){
             }
 
         function myFunction(){
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var pogaText = document.getElementById("poga");
+        let dots = document.getElementById("dots");
+        let moreText = document.getElementById("more");
+        let pogaText = document.getElementById("poga");
         if (dots.style.display === "none"){
             dots.style.display = "inline";
             pogaText.innerHTML = "What element ?";
@@ -27,7 +27,82 @@ function myFunktion(){
             moreText.style.display = "inline";
             
         }
-        }        
+        }  
+        function myHome(){
+        let dots = document.getElementById("dots2");
+        let moreText = document.getElementById("homep");
+        
+        if (dots.style.display === "none"){
+            dots.style.display = "inline";
+            
+            moreText.style.display ="none";
+        } else{
+            dots.style.display = "none";
+            
+            moreText.style.display = "inline";
+            
+        }
+        } 
+        function myCasual(){
+        let dots = document.getElementById("dots3");
+        let moreText = document.getElementById("casualp");
+        let pogaText = document.getElementById("casual");
+        if (dots.style.display === "none"){
+            dots.style.display = "inline";
+            pogaText.innerHTML = "What element ?";
+            moreText.style.display ="none";
+        } else{
+            dots.style.display = "none";
+            pogaText.innerHTML="bro";
+            moreText.style.display = "inline";
+            
+        }
+        } 
+        function myCompetitive(){
+        let dots = document.getElementById("dots4");
+        let moreText = document.getElementById("compp");
+        let pogaText = document.getElementById("comp");
+        if (dots.style.display === "none"){
+            dots.style.display = "inline";
+            pogaText.innerHTML = "What element ?";
+            moreText.style.display ="none";
+        } else{
+            dots.style.display = "none";
+            pogaText.innerHTML="bro";
+            moreText.style.display = "inline";
+            
+        }
+        } 
+        function myLeader(){
+        let dots = document.getElementById("dots5");
+        let moreText = document.getElementById("leadp");
+        let pogaText = document.getElementById("lead");
+        if (dots.style.display === "none"){
+            dots.style.display = "inline";
+            pogaText.innerHTML = "What element ?";
+            moreText.style.display ="none";
+        } else{
+            dots.style.display = "none";
+            pogaText.innerHTML="bro";
+            moreText.style.display = "inline";
+            
+        }
+        }
+        function myRules(){
+        let dots = document.getElementById("dots6");
+        let moreText = document.getElementById("rulep");
+        let pogaText = document.getElementById("rules");
+        if (dots.style.display === "none"){
+            dots.style.display = "inline";
+            pogaText.innerHTML = "What element ?";
+            moreText.style.display ="none";
+        } else{
+            dots.style.display = "none";
+            pogaText.innerHTML="bro";
+            moreText.style.display = "inline";
+            
+        }
+        } 
                 function openPage(pageName,elmnt,color) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
