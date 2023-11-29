@@ -49,11 +49,11 @@ function myFunktion(){
         let pogaText = document.getElementById("casual");
         if (dots.style.display === "none"){
             dots.style.display = "inline";
-            pogaText.innerHTML = "What element ?";
+            
             moreText.style.display ="none";
         } else{
             dots.style.display = "none";
-            pogaText.innerHTML="bro";
+            
             moreText.style.display = "inline";
             
         }
@@ -61,14 +61,14 @@ function myFunktion(){
         function myCompetitive(){
         let dots = document.getElementById("dots4");
         let moreText = document.getElementById("compp");
-        let pogaText = document.getElementById("comp");
+        
         if (dots.style.display === "none"){
             dots.style.display = "inline";
-            pogaText.innerHTML = "What element ?";
+            
             moreText.style.display ="none";
         } else{
             dots.style.display = "none";
-            pogaText.innerHTML="bro";
+            
             moreText.style.display = "inline";
             
         }
@@ -76,14 +76,14 @@ function myFunktion(){
         function myLeader(){
         let dots = document.getElementById("dots5");
         let moreText = document.getElementById("leadp");
-        let pogaText = document.getElementById("lead");
+        
         if (dots.style.display === "none"){
             dots.style.display = "inline";
-            pogaText.innerHTML = "What element ?";
+            
             moreText.style.display ="none";
         } else{
             dots.style.display = "none";
-            pogaText.innerHTML="bro";
+          
             moreText.style.display = "inline";
             
         }
@@ -91,14 +91,14 @@ function myFunktion(){
         function myRules(){
         let dots = document.getElementById("dots6");
         let moreText = document.getElementById("rulep");
-        let pogaText = document.getElementById("rules");
+        
         if (dots.style.display === "none"){
             dots.style.display = "inline";
-            pogaText.innerHTML = "What element ?";
+           
             moreText.style.display ="none";
         } else{
             dots.style.display = "none";
-            pogaText.innerHTML="bro";
+            
             moreText.style.display = "inline";
             
         }
