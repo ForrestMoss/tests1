@@ -18,6 +18,9 @@
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
+            .paslepts {
+            display: none;
+        }
         </style>
 
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -50,7 +53,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
-            <button type="submit" class="btn btn-success" id="home" onclick = "myHome()">Home </button>
+            <button type="submit" class="btn btn-success" id="home" onclick = "myHome()" >Home</button>
             <button type="submit" class="btn btn-success" id="casual" onclick = "myCasual()">Casual</button>
             <button type="submit" class="btn btn-success" id="comp" onclick = "myCompetitive()">Competitive</button>
             <button type="submit" class="btn btn-success" id="lead" onclick = "myLeader()">Leaderboards</button>
@@ -63,7 +66,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-
+  
         <h1>Hello, I'm a magician</h1>
 
 
@@ -71,12 +74,15 @@
         
         <p ><a id="poga" class="btn btn-primary btn-lg" href="#" role="button" onclick = "myFunction()">what element ? &raquo;</a></p>
         
-        <p ><span id="dots2"></span><span id="homep">home </span></p>
-        <p><span id="dots3"></span><span id="casualp">casual </span></p>
-        <p><span id="dots4"></span><span id="compp">comp</span></p>
-        <p><span id="dots5"></span><span id="leadp">leader</span></p>
-        <p><span id="dots6"></span><span id="rulep">rule</span></p>
-        
+
+     
+
+        <p><span id="dots2">...</span><span id="homep" class="paslepts">home</span></p>
+        <p><span id="dots3">...</span><span id="casualp" class="paslepts">casual</span></p>
+        <p><span id="dots4">...</span><span id="compp" class="paslepts">comp</span></p>
+        <p><span id="dots5">...</span><span id="leadp" class="paslepts">leader</span></p>
+        <p><span id="dots6">...</span><span id="rulep" class="paslepts">rule</span></p>
+  
         
         
         <button onclick="sakt();">Sakt</button>

@@ -12,7 +12,14 @@ function myFunktion(){
                 lern.style.display="inline";
             }
             }
-
+        function paraditTekstu() {
+            var pasleptsTeksts = document.getElementById('paslepts');
+            if (pasleptsTeksts.style.display === 'none') {
+                pasleptsTeksts.style.display = 'block';
+            } else {
+                pasleptsTeksts.style.display = 'none';
+            }
+        }
         function myFunction(){
         let dots = document.getElementById("dots");
         let moreText = document.getElementById("more");
@@ -28,6 +35,14 @@ function myFunktion(){
             
         }
         }  
+        function paraditTekstu() {
+            var pasleptsTeksts = document.getElementById('paslepts');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+                pasleptsTeksts.classList.remove('paslepts');
+            } else {
+                pasleptsTeksts.classList.add('paslepts');
+            }
+        }
         function myHome(){
         let dots = document.getElementById("dots2");
         let moreText = document.getElementById("homep");
