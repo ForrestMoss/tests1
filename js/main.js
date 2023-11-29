@@ -1,17 +1,5 @@
-function myFunktion(){
-            var dots=document.getElementById("dots");
-            var moreText=document.getElementById("lern");
-            var btn=document.getElementById("more");
-            if(dots.style.display ==="none"){
-                dots.style.display="inline";
-                more.innerHTML="Learn more";
-                lern.style.display="none";
-            }else{
-                dots.style.display="none";
-                more.innerHTML="Learn less";
-                lern.style.display="inline";
-            }
-            }
+
+
         function paraditTekstu() {
             var pasleptsTeksts = document.getElementById('paslepts');
             if (pasleptsTeksts.style.display === 'none') {
@@ -61,7 +49,7 @@ function myFunktion(){
         function myCasual(){
         let dots = document.getElementById("dots3");
         let moreText = document.getElementById("casualp");
-        let pogaText = document.getElementById("casual");
+        
         if (dots.style.display === "none"){
             dots.style.display = "inline";
             
