@@ -14,43 +14,73 @@ function myFunktion(){
             }
         function myHome() {
             let pasleptsTeksts = document.getElementById('homep');
-            if (pasleptsTeksts.style.display === 'none') {
-                pasleptsTeksts.style.display = 'block';
-            } else {
-                pasleptsTeksts.style.display = 'none';
+            let visasLapas = document.getElementsByClassName('lapas');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+            for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'homep') {
+                visasLapas[i].classList.add('paslepts');
             }
         }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
+}
        function myCasual() {
             let pasleptsTeksts = document.getElementById('casualp');
-            if (pasleptsTeksts.style.display === 'none') {
-                pasleptsTeksts.style.display = 'block';
-            } else {
-                pasleptsTeksts.style.display = 'none';
+            let visasLapas = document.getElementsByClassName('lapas');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+            for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'casualp') {
+                visasLapas[i].classList.add('paslepts');
             }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
         }
         function myCompetitive() {
             let pasleptsTeksts = document.getElementById('compp');
-            if (pasleptsTeksts.style.display === 'none') {
-                pasleptsTeksts.style.display = 'block';
-            } else {
-                pasleptsTeksts.style.display = 'none';
+            let visasLapas = document.getElementsByClassName('lapas');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+            for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'compp') {
+                visasLapas[i].classList.add('paslepts');
             }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
         }
         function myLeader() {
             let pasleptsTeksts = document.getElementById('leadp');
-            if (pasleptsTeksts.style.display === 'none') {
-                pasleptsTeksts.style.display = 'block';
-            } else {
-                pasleptsTeksts.style.display = 'none';
+            let visasLapas = document.getElementsByClassName('lapas');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+            for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'leadp') {
+                visasLapas[i].classList.add('paslepts');
             }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
         }
         function myRules() {
             let pasleptsTeksts = document.getElementById('rulep');
-            if (pasleptsTeksts.style.display === 'none') {
-                pasleptsTeksts.style.display = 'block';
-            } else {
-                pasleptsTeksts.style.display = 'none';
+            let visasLapas = document.getElementsByClassName('lapas');
+            if (pasleptsTeksts.classList.contains('paslepts')) {
+            for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'rulep') {
+                visasLapas[i].classList.add('paslepts');
             }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
         }
         
                 function openPage(pageName,elmnt,color) {

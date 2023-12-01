@@ -13,14 +13,21 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
-            #more{display : none;}
+            
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
             .paslepts {
+            display: none;
+            }
+            .redzams{
             display: block;
-        }
+            }
+            .lapas{
+            font-family: verdana;
+            font-size: 20px;
+            }
         </style>
 
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -53,11 +60,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
-            <button type="submit" class="btn btn-success" id="home" onclick = "myHome()" >Home</button>
-            <button type="submit" class="btn btn-success" id="casual" onclick = "myCasual()">Casual</button>
-            <button type="submit" class="btn btn-success" id="comp" onclick = "myCompetitive()">Competitive</button>
-            <button type="submit" class="btn btn-success" id="lead" onclick = "myLeader()">Leaderboards</button>
-            <button type="submit" class="btn btn-success" id="rules" onclick = "myRules()">Rules</button>
+            <button type="button" class="btn btn-success" id="home" onclick = "myHome()" >Home</button>
+            <button type="button" class="btn btn-success" id="casual" onclick = "myCasual()">Casual</button>
+            <button type="button" class="btn btn-success" id="comp" onclick = "myCompetitive()">Competitive</button>
+            <button type="button" class="btn btn-success" id="lead" onclick = "myLeader()">Leaderboards</button>
+            <button type="button" class="btn btn-success" id="rules" onclick = "myRules()">Rules</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -67,20 +74,20 @@
     <div class="jumbotron">
       <div class="container">
           <script>
-      myHome();
+      
         </script>
         
         
-        <span id="homep" class="paslepts">home</span>
-        <br>
-        <span id="casualp" class="paslepts">casual</span>
-        <br>
-        <span id="compp" class="paslepts">comp</span>
-        <br>
-        <span id="leadp" class="paslepts">leader</span>
-        <br>
-        <span id="rulep"class="paslepts">rule</span>
-        <br>
+        <div id="homep" class="paslepts lapas">home</div>
+        
+        <div id="casualp" class="paslepts lapas">casual</div>
+        
+        <div id="compp" class="paslepts lapas">comp</div>
+        
+        <div id="leadp" class="paslepts lapas">leader</div>
+        
+        <div id="rulep" class="paslepts lapas">rule</div>
+        
         
         
         <button onclick="sakt();">Sakt</button>
