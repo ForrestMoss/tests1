@@ -97,10 +97,12 @@ function openPage(pageName, elmnt, color) {
     elmnt.style.backgroundColor = color;
 }
 async function spele() {
+    document.getElementById('button-container').innerHTML="";
     var vards = await randomVards();
     var sajaukts = sajauc(vards);
     console.log(sajaukts);
     console.log(vards);
+    makeButtons(vards, sajaukts);
     
 }
 async function randomVards() {
@@ -109,7 +111,7 @@ async function randomVards() {
         const dati = await response.json();
         const datim = [];
         for (var i = 0; i < dati[0].length; i++) {
-            datim[i]=dati[0][i];
+            datim[i] = dati[0][i];
         }
         return datim;
     } catch (error) {
@@ -136,7 +138,79 @@ function sajauc(a) {
 
     return sajaukts;
 }
+function makeButtons(a, b) {
+    var contain = document.getElementById('button-container');
+    var buttons = b.map(function (char) {
+        var button = document.createElement('button');
+        button.textContent = char;
+        return button;
+    });
+    buttons.forEach(function (button) {
+        contain.appendChild(button);
+    });
+    makeButtonsDraggable(buttons);
+    contain.addEventListener('dragover', function (event) {
+    event.preventDefault();
+    console.log('Dragover');
+});
 
+contain.addEventListener('drop', function (event) {
+    event.preventDefault();
+    console.log('Drop');
+    var draggedText = event.dataTransfer.getData('text/plain');
+    var draggedButton = buttons.find(function (button) {
+        return button.textContent === draggedText;
+    });
+
+    if (draggedButton) {
+        console.log('Before move: ', buttons.map(button => button.textContent));
+        var index = buttons.indexOf(draggedButton);
+        contain.insertBefore(draggedButton, buttons[index]);
+        console.log('After move: ', buttons.map(button => button.textContent));
+        checkButtonOrder(a, buttons);
+    }
+});
+
+    contain.addEventListener('mouseup', function() {
+        checkButtonOrder(a, buttons);
+    });
+}
+// Функция, делающая кнопки перетаскиваемыми
+function makeButtonsDraggable(buttons) {
+    buttons.forEach(function (button) {
+        button.setAttribute('draggable', true);
+        button.addEventListener('dragstart', function (event) {
+            console.log('Dragstart', button.textContent);
+            event.dataTransfer.setData('text/plain', button.textContent);
+        });
+    });
+}
+
+// Функция для проверки порядка кнопок и сравнения с изначальным текстом
+function checkButtonOrder(correct, buttons) {
+    var currentOrder = buttons.map(function (button) {
+        return button.textContent;
+    });
+
+    if (masivSalidz(currentOrder, correct)) {
+        alert("Tu uzvarēji");
+    }
+}
+    
+
+function masivSalidz(mas1, mas2){
+    if (mas1.length !== mas2.length) {
+        return false;
+    }else{
+        for (var i = 0; i < mas1.length; i++) {
+            if (mas1[i]!==mas2[i]){
+                return false;
+            }
+                
+        }
+        return true;
+    }
+}
 // no https://www.w3schools.com/howto/howto_js_countdown.asp 
 var countDownDate, spele;
 function sakt() {
