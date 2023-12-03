@@ -140,21 +140,28 @@ function sajauc(a) {
 }
 function makeButtons(a, b) {
     var contain = document.getElementById('button-container');
-    var buttons = b.map(function (char) {
+    b.forEach(function (char) {
         var button = document.createElement('button');
+        button.className="burtupogas";
         button.textContent = char;
-        return button;
-    });
-    buttons.forEach(function (button) {
+        button.setAttribute("draggable", "true");
+        button.addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData("text", event.target.textContent);
+            //console.log('Dragstart', button.textContent);
+            
+        });
         contain.appendChild(button);
     });
-    makeButtonsDraggable(buttons);
-    contain.addEventListener('dragover', function (event) {
+    //buttons.forEach(function (button) {
+        
+    //});
+    //makeButtonsDraggable(buttons);
+    /*contain.addEventListener('dragover', function (event) {
     event.preventDefault();
     console.log('Dragover');
-});
+});*/
 
-contain.addEventListener('drop', function (event) {
+/*contain.addEventListener('drop', function (event) {
     event.preventDefault();
     console.log('Drop');
     var draggedText = event.dataTransfer.getData('text/plain');
@@ -169,22 +176,23 @@ contain.addEventListener('drop', function (event) {
         console.log('After move: ', buttons.map(button => button.textContent));
         checkButtonOrder(a, buttons);
     }
-});
+});*/
 
-    contain.addEventListener('mouseup', function() {
-        checkButtonOrder(a, buttons);
-    });
+ //   contain.addEventListener('mouseup', function() {
+  //      checkButtonOrder(a, buttons);
+ //   });
 }
 // Функция, делающая кнопки перетаскиваемыми
-function makeButtonsDraggable(buttons) {
+/*function makeButtonsDraggable(buttons) {
     buttons.forEach(function (button) {
         button.setAttribute('draggable', true);
         button.addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData("text", event.target.textContent);
             console.log('Dragstart', button.textContent);
             event.dataTransfer.setData('text/plain', button.textContent);
         });
     });
-}
+}*/
 
 // Функция для проверки порядка кнопок и сравнения с изначальным текстом
 function checkButtonOrder(correct, buttons) {
@@ -236,4 +244,62 @@ function skaita() {
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+ 
+function handleDragStart(e) {
+  this.style.opacity = '0.4';
+  dragSrcEl = this;
+ 
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+ 
+function handleDragEnd(e) {
+  this.style.opacity = '1';
+ 
+  items.forEach(function (item) {
+    item.classList.remove('over');
+  });
+}
+ 
+function handleDragOver(e) {
+  e.preventDefault();
+  return false;
+}
+ 
+function handleDragEnter(e) {
+  this.classList.add('over');
+}
+ 
+function handleDragLeave(e) {
+  this.classList.remove('over');
+}
+ 
+function handleDrop(e) {
+    e.stopPropagation();
+ 
+if (dragSrcEl !== this) {
+  dragSrcEl.innerHTML = this.innerHTML;
+  this.innerHTML = e.dataTransfer.getData('text/html');
+}
+ 
+return false;
+}
+ 
+let items = document.querySelectorAll('.burtupogas');
+items.forEach(function(item) {
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragover', handleDragOver);
+  item.addEventListener('dragenter', handleDragEnter);
+  item.addEventListener('dragleave', handleDragLeave);
+  item.addEventListener('dragend', handleDragEnd);
+  item.addEventListener('drop', handleDrop);
+});
+});
 
