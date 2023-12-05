@@ -10,13 +10,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+        <link  href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
-
+            h1 {text-align: center;}
+            h2 {text-align: center;}
+            
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
+                font-family: "ArcadeClassic", sans-serif;
+                
             }
             .paslepts {
                 display: none;
@@ -26,6 +30,7 @@
             }
             .lapas{
                 font-family: verdana;
+                
                 font-size: 20px;
             }
             .button-container {
@@ -68,7 +73,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Vārdu sakārtošanas spēle</a>
+                    <a class="navbar-brand" href="#">Word game</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right" role="form">
@@ -192,7 +197,9 @@ async function spele() {
     console.log(sajaukts);
     console.log(vards);
     makeButtons(vards, sajaukts);
-    
+    function skaita() {
+        
+    }
 }
 async function randomVards() {
     try {
@@ -270,7 +277,7 @@ function makeButtons(a, b) {
  //   contain.addEventListener('mouseup', function() {
   //      checkButtonOrder(a, buttons);
  //   });
-
+}
 // Функция, делающая кнопки перетаскиваемыми
 /*function makeButtonsDraggable(buttons) {
     buttons.forEach(function (button) {
@@ -393,7 +400,7 @@ items.forEach(function(item) {
 });
 
 
-}
+
 
 
 
@@ -401,23 +408,37 @@ items.forEach(function(item) {
                 </script>
 
 
-                <div id="homep" class="paslepts lapas">home</div>
+                <div id="homep" class="paslepts lapas">
+                    <h2 >WELCOME TO</h2>
+                    <p></p>
+                    <h1 >"Burtu kārtošanas spēle"</h1>
+                </div>
 
                 <div id="casualp" class="paslepts lapas">
                     <button type="button" class="btn btn-success" id="sakt" onclick = "spele()"  >Sākt jaunu spēli</button>
+                    
+                </div>
+
+                <div id="compp" class="paslepts lapas">
+                    <button type="button" class="btn btn-success" id="sakt" onclick = "spele()"  >Sākt jaunu spēli</button>
+                    <p id="demo"></p>
                     <div id="button-container" class="button-container"></div>
                 </div>
 
-                <div id="compp" class="paslepts lapas">comp</div>
+                <div id="leadp" class="paslepts lapas">leaderboard</div>
 
-                <div id="leadp" class="paslepts lapas">leader</div>
+                <div id="rulep" class="paslepts lapas">
+                    <h1>The Rules</h1>
+                    <h2>1)Organize the given letter's into an english word</h2>
+                    <h2>2)You have 60 seconds to make as many words as you can</h2>
+                    <h2>3)You gain points for each word you complete</h2>
+                    <h2>4)Your objective is to gather as many points as you can to get the top score</h2>
+                    <h2>5)Have Fun</h2>
+                </div>
 
-                <div id="rulep" class="paslepts lapas">rule</div>
 
 
-
-                <button onclick="sakt();">Sakt</button>
-                <p id="demo"></p>
+               
 
 
 
@@ -432,7 +453,7 @@ items.forEach(function(item) {
             <hr>
 
             <footer>
-                <p>&copy; Company 2015</p>
+                <p>&copy; Company 2023</p>
             </footer>
         </div> <!-- /container -->       
 

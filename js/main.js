@@ -12,6 +12,10 @@ function myFunktion() {
         lern.style.display = "inline";
     }
 }
+function Background() {
+ document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('retro.png')";
+}
 function myHome() {
     let pasleptsTeksts = document.getElementById('homep');
     let visasLapas = document.getElementsByClassName('lapas');
@@ -103,7 +107,9 @@ async function spele() {
     console.log(sajaukts);
     console.log(vards);
     makeButtons(vards, sajaukts);
-    
+    function skaita() {
+        
+    }
 }
 async function randomVards() {
     try {
@@ -219,12 +225,16 @@ function masivSalidz(mas1, mas2){
         return true;
     }
 }
+
+
 // no https://www.w3schools.com/howto/howto_js_countdown.asp 
 var countDownDate, spele;
+
 function sakt() {
     countDownDate = new Date().getTime();
     spele = setInterval(skaita, 1000);
 }
+
 // Update the count down every 1 second
 function skaita() {
     let now = new Date().getTime();
