@@ -13,8 +13,10 @@ function myFunktion() {
     }
 }
 function Background() {
- document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('retro.png')";
+ document.lapas.style.backgroundColor = "#f3f3f3";
+  document.lapas.style.backgroundImage = "url('retro.png')";
+  document.footer.style.backgroundColor = "#f3f3f3";
+  document.footer.style.backgroundImage = "url('retro.png')";
 }
 function myHome() {
     let pasleptsTeksts = document.getElementById('homep');
