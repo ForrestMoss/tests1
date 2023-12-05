@@ -209,12 +209,14 @@ function checkButtonOrder(correct, buttons) {
     });
 
     if (masivSalidz(currentOrder, correct)) {
+        
         alert("Tu uzvarēji");
+        alert(punkti);
     }
 }
     
 
-function masivSalidz(mas1, mas2){
+function masivSalidz(mas1, mas2,puntki1){
     if (mas1.length !== mas2.length) {
         return false;
     }else{
@@ -225,8 +227,16 @@ function masivSalidz(mas1, mas2){
                 
         }
         return true;
+        return punkti1 = (mas1.length * 5)*mas1.length;
     }
 }
+
+function punkti(puntki1,){
+    var punkti = punkti + punkti1;
+    document.getElementById("demo").innerHTML = punkti ;
+    return punkti;
+}
+       
 
 
 // no https://www.w3schools.com/howto/howto_js_countdown.asp 
