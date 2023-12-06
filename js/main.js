@@ -30,7 +30,7 @@ function myHome() {
         pasleptsTeksts.classList.remove('paslepts');
     }
 
-    event.preventDefault();
+   // event.preventDefault();
 }
 function myCasual() {
     let pasleptsTeksts = document.getElementById('casualp');
@@ -71,14 +71,16 @@ function myLeader() {
         }
         }
         tabcontent[i].style.display = "none";
-    }
+    
+    
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].style.backgroundColor = "";
     }
-    document.getElementById(pageName).style.display = "block";
+    document.getElementById("div1").style.display = "block";
     elmnt.style.backgroundColor = color;
-
+    
+    }
 async function spele() {
     document.getElementById('button-container').innerHTML="";
     var vards = await randomVards();
@@ -86,7 +88,7 @@ async function spele() {
     console.log(sajaukts);
     console.log(vards);
     makeButtons(vards, sajaukts);
-    skaita();
+    sakt();
     
 }
 
@@ -303,10 +305,10 @@ items.forEach(function(item) {
 });
 });
 
-        pasleptsTeksts.classList.remove('paslepts');
+      //  pasleptsTeksts.classList.remove('paslepts');
     
 
-    event.preventDefault();
+   // event.preventDefault();
 
 function myRules() {
     let pasleptsTeksts = document.getElementById('rulep');
