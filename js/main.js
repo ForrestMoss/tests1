@@ -78,7 +78,7 @@ function myLeader() {
     }
     document.getElementById(pageName).style.display = "block";
     elmnt.style.backgroundColor = color;
-}
+
 async function spele() {
     document.getElementById('button-container').innerHTML="";
     var vards = await randomVards();
@@ -303,10 +303,10 @@ items.forEach(function(item) {
 });
 
         pasleptsTeksts.classList.remove('paslepts');
-    }
+    
 
     event.preventDefault();
-}
+
 function myRules() {
     let pasleptsTeksts = document.getElementById('rulep');
     let visasLapas = document.getElementsByClassName('lapas');
@@ -315,3 +315,6 @@ function myRules() {
             if (visasLapas[i].id !== 'rulep') {
                 visasLapas[i].classList.add('paslepts');
             }
+        }
+    }
+    }
