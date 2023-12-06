@@ -86,8 +86,26 @@ async function spele() {
     console.log(sajaukts);
     console.log(vards);
     makeButtons(vards, sajaukts);
+    skaita();
+    
+}
+
     function skaita() {
-        
+    let now = new Date().getTime();
+    // Find the distance between now and the count down date
+    let distance = now - countDownDate;
+
+    // Time calculations for days, hours, minutes and seconds
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = 60 - Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+
+    // If the count down is over, write some text 
+    if (distance > 60000) {
+        clearInterval(spele);
+        document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }
 async function randomVards() {
@@ -225,24 +243,7 @@ function sakt() {
 }
 
 // Update the count down every 1 second
-function skaita() {
-    let now = new Date().getTime();
-    // Find the distance between now and the count down date
-    let distance = now - countDownDate;
 
-    // Time calculations for days, hours, minutes and seconds
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = 60 - Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
-
-    // If the count down is over, write some text 
-    if (distance > 60000) {
-        clearInterval(spele);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-}
 
 
 
