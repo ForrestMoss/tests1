@@ -13,14 +13,18 @@
         <link  href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
-            h1 {text-align: center;}
-            h2 {text-align: center;}
-            
+            h1 {
+                text-align: center;
+            }
+            h2 {
+                text-align: center;
+            }
+
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
                 font-family: "ArcadeClassic", sans-serif;
-                
+
             }
             .paslepts {
                 display: none;
@@ -30,21 +34,27 @@
             }
             .lapas{
                 font-family: verdana;
-                
+
                 font-size: 20px;
             }
-            .button-container {
+            .container {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 10px;
             }
-
-            .draggable {
+            .button {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
                 cursor: grab;
+                user-select: none;
+                border: 1px solid #ccc;
+                border-radius: 5px;
             }
-
-            .draggable:active {
-                cursor: grabbing;
-            }
+            
         </style>
 
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -54,7 +64,7 @@
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>');</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
@@ -90,6 +100,7 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
+
                 <script>
 
 
@@ -97,10 +108,11 @@
 
                 </script>
 
-                
+
                 <div id = "div1" style ="display:none" >
                     awefgawfawfg
                 </div>
+
 
                 <div id="homep" class="paslepts lapas">
                     <h2 >WELCOME TO</h2>
@@ -109,24 +121,18 @@
                 </div>
 
                 <div id="casualp" class="paslepts lapas">
-                    <button type="button" class="btn btn-success" id="sakt2" onclick = "spele2()"  >Sākt jaunu spēli</button>
-                    
+                    <button type="button" class="btn btn-success" id="sakt2" onclick = "spele()"  >Sākt jaunu spēli</button>
+
                 </div>
 
-                
                 <div id="compp" class="paslepts lapas">
                     <button type="button" class="btn btn-success" id="sakt" onclick = "spele()"   >Sākt jaunu spēli</button>
                     <p id = "punktip"> </p>
                     <p id="demo"></p>
-                    
-                    <div id="letter-box">
-                        
-                    </div>
-                    
-                    <div id="button-container" class="button-container"></div>
+
+
                 </div>
 
-                
                 <div id="leadp" class="paslepts lapas">leaderboard</div>
 
                 <div id="rulep" class="paslepts lapas">
@@ -137,57 +143,47 @@
                     <h2>4)Your objective is to gather as many points as you can to get the top score</h2>
                     <h2>5)Have Fun</h2>
                 </div>
+                <div id="buttonContainer" class="container"></div>
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="jumbotron">
+                    <div class="container">
+                        <script>
+                            myHome();
+                        </script>
+
+
+                        <span id="homep" class="paslepts">home</span>
+                        <br>
+                        <span id="casualp" class="paslepts">casual</span>
+                        <br>
+                        <span id="compp" class="paslepts">comp</span>
+                        <br>
+                        <span id="leadp" class="paslepts">leader</span>
+                        <br>
+                        <span id="rulep" class="paslepts">rule</span>
+                        <br>
 
 
 
-               
+
+
+                    </div>
+                </div>
 
 
 
-        
-        
-      
-        
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-          <script>
-      myHome();
-        </script>
-        
-        
-        <span id="homep" class="paslepts">home</span>
-        <br>
-        <span id="casualp" class="paslepts">casual</span>
-        <br>
-        <span id="compp" class="paslepts">comp</span>
-        <br>
-        <span id="leadp" class="paslepts">leader</span>
-        <br>
-        <span id="rulep" class="paslepts">rule</span>
-        <br>
-        
-        
-        
-        
-       
-      </div>
-    </div>
-     
+
+                <div class="container">
+                    <!-- Example row of columns -->
 
 
+                    <hr>
 
-        <div class="container">
-            <!-- Example row of columns -->
-
-
-            <hr>
-
-            <footer>
-                <p>&copy; Company 2023</p>
-            </footer>
-        </div> <!-- /container -->       
+                    <footer>
+                        <p>&copy; Company 2023</p>
+                    </footer>
+                </div> <!-- /container -->       
 
 
-    </body>
-</html>
+                </body>
+                </html>

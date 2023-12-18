@@ -1,33 +1,8 @@
-/* global b */
-
-function myFunktion() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("lern");
-    var btn = document.getElementById("more");
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        more.innerHTML = "Learn more";
-        lern.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        more.innerHTML = "Learn less";
-        lern.style.display = "inline";
-    }
-}
-
-
-    var box;
-    var boxes;
-    var letterBoxes = document.getElementById("letter-box");
-    var punkti;  
-    var letter;
-    
-    
 function Background() {
- document.lapas.style.backgroundColor = "#f3f3f3";
-  document.lapas.style.backgroundImage = "url('retro.png')";
-  document.footer.style.backgroundColor = "#f3f3f3";
-  document.footer.style.backgroundImage = "url('retro.png')";
+    document.lapas.style.backgroundColor = "#f3f3f3";
+    document.lapas.style.backgroundImage = "url('retro.png')";
+    document.footer.style.backgroundColor = "#f3f3f3";
+    document.footer.style.backgroundImage = "url('retro.png')";
 }
 function myHome() {
     let pasleptsTeksts = document.getElementById('homep');
@@ -41,7 +16,7 @@ function myHome() {
         pasleptsTeksts.classList.remove('paslepts');
     }
 
-   // event.preventDefault();
+    // event.preventDefault();
 }
 function myCasual() {
     let pasleptsTeksts = document.getElementById('casualp');
@@ -57,9 +32,6 @@ function myCasual() {
 
     event.preventDefault();
 }
-
-
-
 function myCompetitive() {
     let pasleptsTeksts = document.getElementById('compp');
     let visasLapas = document.getElementsByClassName('lapas');
@@ -83,133 +55,48 @@ function myLeader() {
                 visasLapas[i].classList.add('paslepts');
             }
         }
+    }
+    pasleptsTeksts.classList.remove('paslepts');
+}
+function myRules() {
+    let pasleptsTeksts = document.getElementById('rulep');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'rulep') {
+                visasLapas[i].classList.add('paslepts');
+            }
         }
+    }
+
+
+    pasleptsTeksts.classList.remove('paslepts');
+}
+function openPage(pageName, elmnt, color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
-    
-    
+    }
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].style.backgroundColor = "";
     }
-    document.getElementById("div1").style.display = "block";
-    //element.style.backgroundColor = "#f3f3f3";
-    
-    }
-    
-   
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+}
+var vards="";
 async function spele() {
-     document.getElementById("letter-box").innerHTML = "";
-     //if (letterBoxes.innerHTML === "none") {  
-    // }
-     //else{
-     //document.getElementById("letterBoxes").innerHTML = "";
-    //}
-    
-     punkti = 0;
-    document.getElementById('button-container').innerHTML="";
-    var vards = await randomVards();
+    document.getElementById('buttonContainer').innerHTML = "";
+    vards = await randomVards();
     var sajaukts = sajauc(vards);
     console.log(sajaukts);
     console.log(vards);
-    //makeButtons(vards, sajaukts);
-    makediv(vards,sajaukts);
-    sakt();
-    
+    createButtons(sajaukts);
+
 }
-    document.addEventListener('click', (event) => {
 
-            function handleDragStart(e) {
-                this.style.opacity = '0.4';
-                dragSrcEl = this;
-
-                e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('text/html', this.innerHTML);
-            }
-
-            function handleDragEnd(e) {
-                this.style.opacity = '1';
-
-                items.forEach(function (item) {
-                    item.classList.remove('over');
-                });
-            }
-
-            function handleDragOver(e) {
-                e.preventDefault();
-                return false;
-            }
-
-            function handleDragEnter(e) {
-                this.classList.add('over');
-            }
-
-            function handleDragLeave(e) {
-                this.classList.remove('over');
-            }
-
-            function handleDrop(e) {
-                e.stopPropagation();
-
-                if (dragSrcEl !== this) {
-                    dragSrcEl.innerHTML = this.innerHTML;
-                    this.innerHTML = e.dataTransfer.getData('text/html');
-                }
-
-                return false;
-            }
-
-            let items = document.querySelectorAll('.letter-box');
-            items.forEach(function (item) {
-                item.addEventListener('dragstart', handleDragStart);
-                item.addEventListener('dragover', handleDragOver);
-                item.addEventListener('dragenter', handleDragEnter);
-                item.addEventListener('dragleave', handleDragLeave);
-                item.addEventListener('dragend', handleDragEnd);
-                item.addEventListener('drop', handleDrop);
-            });
-        });
-
-    //function makeButtons(a, b) {
-//    var contain = document.getElementById('button-container');
-//    b.forEach(function (char) {
- //       var button = document.createElement('button');
-//        button.className="burtupogas";
- //       button.textContent = char;
-  //      button.setAttribute("draggable", "true");
- //     button.addEventListener('dragstart', function (event) {
- //           event.dataTransfer.setData("text", event.target.textContent);
-            //console.log('Dragstart', button.textContent);
-            
-   //     });
-   //     contain.appendChild(button);
- //   });
-    
-     
-    function makediv(a, b){
-        console.log("ieslēdzas makediv");
-       b.forEach(function (letter) {
-            var box = document.createElement('div');
-            box.className = "letter-box";
-            box.textContent = letter;
-            box.setAttribute("draggable", "true");
-                box.addEventListener("dragstart", function (event) {
-                    event.dataTransfer.setData("text", event.target.textContent);
-                });
-                letterBoxes.appendChild(box);
-            });
-    }
-    
-   function endGame() {
-            boxes.forEach(function (box) {
-                box.setAttribute("draggable", "false");
-
-                //alert("hheee");
-            });
-            letterBoxes.innerHTML = "";
-        }
-
-
-    function skaita() {
+function skaita() {
     let now = new Date().getTime();
     // Find the distance between now and the count down date
     let distance = now - countDownDate;
@@ -221,7 +108,6 @@ async function spele() {
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
 
-    // If the count down is over, write some text 
     if (distance > 60000) {
         clearInterval(spele);
         document.getElementById("demo").innerHTML = "EXPIRED";
@@ -260,181 +146,66 @@ function sajauc(a) {
 
     return sajaukts;
 }
-//function makeButtons(a, b) {
-//    var contain = document.getElementById('button-container');
-//    b.forEach(function (char) {
- //       var button = document.createElement('button');
-//        button.className="burtupogas";
- //       button.textContent = char;
-  //      button.setAttribute("draggable", "true");
- //     button.addEventListener('dragstart', function (event) {
- //           event.dataTransfer.setData("text", event.target.textContent);
-            //console.log('Dragstart', button.textContent);
-            
-   //     });
-   //     contain.appendChild(button);
- //   });
-    //buttons.forEach(function (button) {
-        
-    //});
-    //makeButtonsDraggable(buttons);
-    /*contain.addEventListener('dragover', function (event) {
-    event.preventDefault();
-    console.log('Dragover');
-});*/
-
-/*contain.addEventListener('drop', function (event) {
-    event.preventDefault();
-    console.log('Drop');
-    var draggedText = event.dataTransfer.getData('text/plain');
-    var draggedButton = buttons.find(function (button) {
-        return button.textContent === draggedText;
-    });
-
-    if (draggedButton) {
-        console.log('Before move: ', buttons.map(button => button.textContent));
-        var index = buttons.indexOf(draggedButton);
-        contain.insertBefore(draggedButton, buttons[index]);
-        console.log('After move: ', buttons.map(button => button.textContent));
-        checkButtonOrder(a, buttons);
-    }
-});*/
-
- //   contain.addEventListener('mouseup', function() {
-  //      checkButtonOrder(a, buttons);
- //   });
-//}
-// Функция, делающая кнопки перетаскиваемыми
-/*function makeButtonsDraggable(buttons) {
-    buttons.forEach(function (button) {
+function createButtons(saj) {
+    const buttonContainer = document.getElementById('buttonContainer');
+    const pogas = saj;
+    for (var i = 0; i < pogas.length; i++) {
+        const button = document.createElement('div');
+        button.classList.add('button');
         button.setAttribute('draggable', true);
-        button.addEventListener('dragstart', function (event) {
-            event.dataTransfer.setData("text", event.target.textContent);
-            console.log('Dragstart', button.textContent);
-            event.dataTransfer.setData('text/plain', button.textContent);
-        });
-    });
-}*/
-
-// Функция для проверки порядка кнопок и сравнения с изначальным текстом
-function checkdivOrder(correct, box) {
-    var currentOrder = box.map(function (char) {
-        return box.textContent;
-    });
-
-    if (masivSalidz(currentOrder, correct)) {
-        
-        alert("Tu uzvarēji");
-        alert(punkti);
+        button.setAttribute('data-index', i);
+        button.innerText = pogas[i];
+        buttonContainer.appendChild(button);
     }
-}
-    
 
-function masivSalidz(mas1, mas2,puntki1){
-    if (mas1.length !== mas2.length) {
-        return false;
-    }else{
-        for (var i = 0; i < mas1.length; i++) {
-            if (mas1[i]!==mas2[i]){
-                return false;
-            }
-                
+    // Pievieno notikumus pārvietošanai un pārbaudei
+    let draggedButton = null;
+
+    buttonContainer.addEventListener('dragstart', (e) => {
+        if (e.target.classList.contains('button')) {
+            draggedButton = e.target;
+            draggedButton.style.opacity = '0.5';
         }
-        return true;
-        return punkti1 = (mas1.length * 5)*mas1.length;
-    }
-}
+    });
 
-function punkti(puntki1,){
-    var punkti = punkti + punkti1;
-    document.getElementById("demo").innerHTML = punkti ;
-    return punkti;
-}
-       
+    buttonContainer.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        const target = e.target;
+        const isButton = target.classList.contains('button');
+        const isContainer = target.classList.contains('container');
+        if (isButton || isContainer) {
+            const targetRect = target.getBoundingClientRect();
+            const offsetX = e.clientX - targetRect.left;
+            const offsetY = e.clientY - targetRect.top;
 
+            const halfway = isButton ? (offsetX > targetRect.width / 2) : true;
+            const nextButton = isButton ? target : null;
 
-// no https://www.w3schools.com/howto/howto_js_countdown.asp 
-var countDownDate, spele;
-
-function sakt() {
-    countDownDate = new Date().getTime();
-    spele = setInterval(skaita, 1000);
-}
-
-// Update the count down every 1 second
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
- 
-function handleDragStart(e) {
-  this.style.opacity = '0.4';
-  dragSrcEl = this;
- 
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.innerHTML);
-}
- 
-function handleDragEnd(e) {
-  this.style.opacity = '1';
- 
-  items.forEach(function (item) {
-    item.classList.remove('over');
-  });
-}
- 
-function handleDragOver(e) {
-  e.preventDefault();
-  return false;
-}
- 
-function handleDragEnter(e) {
-  this.classList.add('over');
-}
- 
-function handleDragLeave(e) {
-  this.classList.remove('over');
-}
- 
-function handleDrop(e) {
-    e.stopPropagation();
- 
-if (dragSrcEl !== this) {
-  dragSrcEl.innerHTML = this.innerHTML;
-  this.innerHTML = e.dataTransfer.getData('text/html');
-}
- 
-return false;
-}
- 
-let items = document.querySelectorAll('.burtupogas');
-items.forEach(function(item) {
-  item.addEventListener('dragstart', handleDragStart);
-  item.addEventListener('dragover', handleDragOver);
-  item.addEventListener('dragenter', handleDragEnter);
-  item.addEventListener('dragleave', handleDragLeave);
-  item.addEventListener('dragend', handleDragEnd);
-  item.addEventListener('drop', handleDrop);
-});
-});
-
-      //  pasleptsTeksts.classList.remove('paslepts');
-    
-
-   // event.preventDefault();
-
-function myRules() {
-    let pasleptsTeksts = document.getElementById('rulep');
-    let visasLapas = document.getElementsByClassName('lapas');
-    if (pasleptsTeksts.classList.contains('paslepts')) {
-        for (let i = 0; i < visasLapas.length; i++) {
-            if (visasLapas[i].id !== 'rulep') {
-                visasLapas[i].classList.add('paslepts');
+            if (nextButton && nextButton !== draggedButton.nextSibling) {
+                buttonContainer.insertBefore(draggedButton, halfway ? nextButton.nextSibling : nextButton);
+            } else if (isContainer && !isButton) {
+                buttonContainer.appendChild(draggedButton);
             }
         }
+    });
+
+    buttonContainer.addEventListener('dragend', (e) => {
+        if (draggedButton) {
+            draggedButton.style.opacity = '1';
+            draggedButton = null;
+        }
+
+        if (checkOrder()) {
+            alert('Pareizā secībā!');
+        }
+    });
+}
+function checkOrder() {
+    const buttons = document.querySelectorAll('.button');
+    for (let i = 0; i < vards.length; i++) {
+        if (buttons[i].innerText !== vards[i]) {
+            return false;
+        }
     }
-    }
+    return true;
+}
