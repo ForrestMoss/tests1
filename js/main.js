@@ -4,7 +4,9 @@ function Background() {
     document.footer.style.backgroundColor = "#f3f3f3";
     document.footer.style.backgroundImage = "url('retro.png')";
 }
+
 function myHome() {
+    document.getElementById('buttonContainer').innerHTML = "";
     let pasleptsTeksts = document.getElementById('homep');
     let visasLapas = document.getElementsByClassName('lapas');
     if (pasleptsTeksts.classList.contains('paslepts')) {
@@ -19,6 +21,7 @@ function myHome() {
     // event.preventDefault();
 }
 function myCasual() {
+    document.getElementById('buttonContainer').innerHTML = "";
     let pasleptsTeksts = document.getElementById('casualp');
     let visasLapas = document.getElementsByClassName('lapas');
     if (pasleptsTeksts.classList.contains('paslepts')) {
@@ -33,6 +36,7 @@ function myCasual() {
     event.preventDefault();
 }
 function myCompetitive() {
+    document.getElementById('buttonContainer').innerHTML = "";
     let pasleptsTeksts = document.getElementById('compp');
     let visasLapas = document.getElementsByClassName('lapas');
     if (pasleptsTeksts.classList.contains('paslepts')) {
@@ -47,6 +51,7 @@ function myCompetitive() {
     event.preventDefault();
 }
 function myLeader() {
+    document.getElementById('buttonContainer').innerHTML = "";
     let pasleptsTeksts = document.getElementById('leadp');
     let visasLapas = document.getElementsByClassName('lapas');
     if (pasleptsTeksts.classList.contains('paslepts')) {
@@ -59,6 +64,7 @@ function myLeader() {
     pasleptsTeksts.classList.remove('paslepts');
 }
 function myRules() {
+    document.getElementById('buttonContainer').innerHTML = "";
     let pasleptsTeksts = document.getElementById('rulep');
     let visasLapas = document.getElementsByClassName('lapas');
     if (pasleptsTeksts.classList.contains('paslepts')) {
@@ -93,9 +99,14 @@ async function spele() {
     console.log(sajaukts);
     console.log(vards);
     createButtons(sajaukts);
-
+    sakt();
 }
 
+
+function sakt() {
+    countDownDate = new Date().getTime();
+    spele = setInterval(skaita, 1000);
+}
 function skaita() {
     let now = new Date().getTime();
     // Find the distance between now and the count down date
@@ -188,6 +199,7 @@ function createButtons(saj) {
             }
         }
     });
+ 
 
     buttonContainer.addEventListener('dragend', (e) => {
         if (draggedButton) {
@@ -197,6 +209,7 @@ function createButtons(saj) {
 
         if (checkOrder()) {
             alert('Pareizā secībā!');
+            
         }
     });
 }
@@ -208,4 +221,17 @@ function checkOrder() {
         }
     }
     return true;
+    //return punkti1 = vards.length;
+    //punkti(punkti1);
 }
+   //var puntki;
+//var punkti1;
+/*function punkti(puntki1){
+    
+     punkti = punkti + punkti1;
+    document.getElementById("punktip").innerHTML = punkti ;
+    return punkti;
+}
+ * 
+ */
+
