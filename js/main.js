@@ -1,3 +1,5 @@
+/* global b */
+
 function myFunktion() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("lern");
@@ -12,6 +14,15 @@ function myFunktion() {
         lern.style.display = "inline";
     }
 }
+
+
+    var box;
+    var boxes;
+    var letterBoxes = document.getElementById("letter-box");
+    var punkti;  
+    var letter;
+    
+    
 function Background() {
  document.lapas.style.backgroundColor = "#f3f3f3";
   document.lapas.style.backgroundImage = "url('retro.png')";
@@ -46,6 +57,9 @@ function myCasual() {
 
     event.preventDefault();
 }
+
+
+
 function myCompetitive() {
     let pasleptsTeksts = document.getElementById('compp');
     let visasLapas = document.getElementsByClassName('lapas');
@@ -78,19 +92,122 @@ function myLeader() {
         tablinks[i].style.backgroundColor = "";
     }
     document.getElementById("div1").style.display = "block";
-    elmnt.style.backgroundColor = color;
+    //element.style.backgroundColor = "#f3f3f3";
     
     }
+    
+   
 async function spele() {
+     document.getElementById("letter-box").innerHTML = "";
+     //if (letterBoxes.innerHTML === "none") {  
+    // }
+     //else{
+     //document.getElementById("letterBoxes").innerHTML = "";
+    //}
+    
+     punkti = 0;
     document.getElementById('button-container').innerHTML="";
     var vards = await randomVards();
     var sajaukts = sajauc(vards);
     console.log(sajaukts);
     console.log(vards);
-    makeButtons(vards, sajaukts);
+    //makeButtons(vards, sajaukts);
+    makediv(vards,sajaukts);
     sakt();
     
 }
+    document.addEventListener('click', (event) => {
+
+            function handleDragStart(e) {
+                this.style.opacity = '0.4';
+                dragSrcEl = this;
+
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/html', this.innerHTML);
+            }
+
+            function handleDragEnd(e) {
+                this.style.opacity = '1';
+
+                items.forEach(function (item) {
+                    item.classList.remove('over');
+                });
+            }
+
+            function handleDragOver(e) {
+                e.preventDefault();
+                return false;
+            }
+
+            function handleDragEnter(e) {
+                this.classList.add('over');
+            }
+
+            function handleDragLeave(e) {
+                this.classList.remove('over');
+            }
+
+            function handleDrop(e) {
+                e.stopPropagation();
+
+                if (dragSrcEl !== this) {
+                    dragSrcEl.innerHTML = this.innerHTML;
+                    this.innerHTML = e.dataTransfer.getData('text/html');
+                }
+
+                return false;
+            }
+
+            let items = document.querySelectorAll('.letter-box');
+            items.forEach(function (item) {
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('dragover', handleDragOver);
+                item.addEventListener('dragenter', handleDragEnter);
+                item.addEventListener('dragleave', handleDragLeave);
+                item.addEventListener('dragend', handleDragEnd);
+                item.addEventListener('drop', handleDrop);
+            });
+        });
+
+    //function makeButtons(a, b) {
+//    var contain = document.getElementById('button-container');
+//    b.forEach(function (char) {
+ //       var button = document.createElement('button');
+//        button.className="burtupogas";
+ //       button.textContent = char;
+  //      button.setAttribute("draggable", "true");
+ //     button.addEventListener('dragstart', function (event) {
+ //           event.dataTransfer.setData("text", event.target.textContent);
+            //console.log('Dragstart', button.textContent);
+            
+   //     });
+   //     contain.appendChild(button);
+ //   });
+    
+     
+    function makediv(a, b){
+        console.log("ieslēdzas makediv");
+       b.forEach(function (letter) {
+            var box = document.createElement('div');
+            box.className = "letter-box";
+            box.textContent = letter;
+            box.setAttribute("draggable", "true");
+                box.addEventListener("dragstart", function (event) {
+                    event.dataTransfer.setData("text", event.target.textContent);
+                });
+                letterBoxes.appendChild(box);
+            });
+    }
+    
+   function endGame() {
+            boxes.forEach(function (box) {
+                box.setAttribute("draggable", "false");
+
+                //alert("hheee");
+            });
+            letterBoxes.innerHTML = "";
+        }
+
 
     function skaita() {
     let now = new Date().getTime();
@@ -143,20 +260,20 @@ function sajauc(a) {
 
     return sajaukts;
 }
-function makeButtons(a, b) {
-    var contain = document.getElementById('button-container');
-    b.forEach(function (char) {
-        var button = document.createElement('button');
-        button.className="burtupogas";
-        button.textContent = char;
-        button.setAttribute("draggable", "true");
-        button.addEventListener('dragstart', function (event) {
-            event.dataTransfer.setData("text", event.target.textContent);
+//function makeButtons(a, b) {
+//    var contain = document.getElementById('button-container');
+//    b.forEach(function (char) {
+ //       var button = document.createElement('button');
+//        button.className="burtupogas";
+ //       button.textContent = char;
+  //      button.setAttribute("draggable", "true");
+ //     button.addEventListener('dragstart', function (event) {
+ //           event.dataTransfer.setData("text", event.target.textContent);
             //console.log('Dragstart', button.textContent);
             
-        });
-        contain.appendChild(button);
-    });
+   //     });
+   //     contain.appendChild(button);
+ //   });
     //buttons.forEach(function (button) {
         
     //});
@@ -186,7 +303,7 @@ function makeButtons(a, b) {
  //   contain.addEventListener('mouseup', function() {
   //      checkButtonOrder(a, buttons);
  //   });
-}
+//}
 // Функция, делающая кнопки перетаскиваемыми
 /*function makeButtonsDraggable(buttons) {
     buttons.forEach(function (button) {
@@ -200,9 +317,9 @@ function makeButtons(a, b) {
 }*/
 
 // Функция для проверки порядка кнопок и сравнения с изначальным текстом
-function checkButtonOrder(correct, buttons) {
-    var currentOrder = buttons.map(function (button) {
-        return button.textContent;
+function checkdivOrder(correct, box) {
+    var currentOrder = box.map(function (char) {
+        return box.textContent;
     });
 
     if (masivSalidz(currentOrder, correct)) {
