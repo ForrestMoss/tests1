@@ -92,6 +92,7 @@ function openPage(pageName, elmnt, color) {
     elmnt.style.backgroundColor = color;
 }
 var vards="";
+
 async function spele() {
     document.getElementById('buttonContainer').innerHTML = "";
     vards = await randomVards();
@@ -100,9 +101,9 @@ async function spele() {
     console.log(vards);
     createButtons(sajaukts);
     sakt();
+    
 }
-
-
+ 
 function sakt() {
     countDownDate = new Date().getTime();
     spele = setInterval(skaita, 1000);
@@ -213,6 +214,16 @@ function createButtons(saj) {
         }
     });
 }
+   var punkti;
+    var punkti1;
+    
+function funkpunkti(){
+    
+     punkti = punkti + punkti1;
+    document.getElementById("punktip").innerHTML = punkti ;
+    
+    
+}
 function checkOrder() {
     const buttons = document.querySelectorAll('.button');
     for (let i = 0; i < vards.length; i++) {
@@ -220,18 +231,14 @@ function checkOrder() {
             return false;
         }
     }
-    return true;
-    //return punkti1 = vards.length;
-    //punkti(punkti1);
-}
-   //var puntki;
-//var punkti1;
-/*function punkti(puntki1){
     
-     punkti = punkti + punkti1;
-    document.getElementById("punktip").innerHTML = punkti ;
-    return punkti;
+    return punkti1 = vards.length;
+    funkpunkti(punkti1);
+    return true;
+    
 }
- * 
- */
+   
+
+  
+ 
 
