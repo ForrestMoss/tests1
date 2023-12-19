@@ -92,7 +92,9 @@ function openPage(pageName, elmnt, color) {
     elmnt.style.backgroundColor = color;
 }
 var vards="";
-
+var punkti=0;
+var punkti1=0;
+    
 async function spele() {
     document.getElementById('buttonContainer').innerHTML = "";
     vards = await randomVards();
@@ -210,17 +212,18 @@ function createButtons(saj) {
 
         if (checkOrder()) {
             alert('Pareizā secībā!');
-            
+            punkti1 = vards.length;
+            funkpunkti(punkti1);
         }
     });
 }
-   var punkti;
-    var punkti1;
+   //var punkti;
+    //var punkti1;
+ 
+function funkpunkti(a){
     
-function funkpunkti(){
-    
-     punkti = punkti + punkti1;
-    document.getElementById("punktip").innerHTML = punkti ;
+     punkti = punkti + a;
+    document.getElementById("punktip").innerHTML = punkti + " " +"punkti" ;
     
     
 }
@@ -232,8 +235,7 @@ function checkOrder() {
         }
     }
     
-    return punkti1 = vards.length;
-    funkpunkti(punkti1);
+    
     return true;
     
 }
