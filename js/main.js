@@ -1,8 +1,12 @@
 function Background() {
     document.lapas.style.backgroundColor = "#f3f3f3";
     document.lapas.style.backgroundImage = "url('retro.png')";
+    document.body.style.backgroundImage = "url('retro.png')";
+    document.script.style.backgroundImage = "url('retro.png')";
     document.footer.style.backgroundColor = "#f3f3f3";
     document.footer.style.backgroundImage = "url('retro.png')";
+    let element = document.getElementById("background1");
+    element.style.backgroundImage = "url('retro.png')";
 }
 
 function myHome() {
@@ -94,21 +98,25 @@ function openPage(pageName, elmnt, color) {
 var vards="";
 var punkti=0;
 var punkti1=0;
-    
-async function spele() {
+var c ;  
+async function spele(c) {
     document.getElementById('buttonContainer').innerHTML = "";
     vards = await randomVards();
     var sajaukts = sajauc(vards);
     console.log(sajaukts);
     console.log(vards);
     createButtons(sajaukts);
-    sakt();
+    if (c === true) {
+          sakt();
+    }
+    
+    
     
 }
  
 function sakt() {
     countDownDate = new Date().getTime();
-    spele = setInterval(skaita, 1000);
+    sus = setInterval(skaita, 1000);
 }
 function skaita() {
     let now = new Date().getTime();
@@ -123,7 +131,7 @@ function skaita() {
     document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
 
     if (distance > 60000) {
-        clearInterval(spele);
+        clearInterval(sus);
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }
@@ -214,6 +222,7 @@ function createButtons(saj) {
             alert('Pareizā secībā!');
             punkti1 = vards.length;
             funkpunkti(punkti1);
+            spele(false);
         }
     });
 }
