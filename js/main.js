@@ -1,0 +1,338 @@
+function Background() {
+    document.lapas.style.backgroundColor = "#f3f3f3";
+    document.lapas.style.backgroundImage = "url('retro.png')";
+    document.body.style.backgroundImage = "url('retro.png')";
+    document.script.style.backgroundImage = "url('retro.png')";
+    document.footer.style.backgroundColor = "#f3f3f3";
+    document.footer.style.backgroundImage = "url('retro.png')";
+    let element = document.getElementById("background1");
+    element.style.backgroundImage = "url('retro.png')";
+}
+
+function myHome() {
+    document.getElementById('buttonContainer').innerHTML = "";
+    let pasleptsTeksts = document.getElementById('homep');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'homep') {
+                visasLapas[i].classList.add('paslepts');
+            }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    // event.preventDefault();
+}
+function myCasual() {
+    document.getElementById('buttonContainer').innerHTML = "";
+    let pasleptsTeksts = document.getElementById('casualp');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'casualp') {
+                visasLapas[i].classList.add('paslepts');
+            }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
+}
+function myCompetitive() {
+    document.getElementById('buttonContainer').innerHTML = "";
+    let pasleptsTeksts = document.getElementById('compp');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'compp') {
+                visasLapas[i].classList.add('paslepts');
+            }
+        }
+        pasleptsTeksts.classList.remove('paslepts');
+    }
+
+    event.preventDefault();
+}
+function myLeader() {
+    document.getElementById('buttonContainer').innerHTML = "";
+    let pasleptsTeksts = document.getElementById('leadp');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'leadp') {
+                visasLapas[i].classList.add('paslepts');
+            }
+        }
+    }
+    pasleptsTeksts.classList.remove('paslepts');
+}
+function myRules() {
+    document.getElementById('buttonContainer').innerHTML = "";
+    let pasleptsTeksts = document.getElementById('rulep');
+    let visasLapas = document.getElementsByClassName('lapas');
+    if (pasleptsTeksts.classList.contains('paslepts')) {
+        for (let i = 0; i < visasLapas.length; i++) {
+            if (visasLapas[i].id !== 'rulep') {
+                visasLapas[i].classList.add('paslepts');
+            }
+        }
+    }
+
+
+    pasleptsTeksts.classList.remove('paslepts');
+}
+function openPage(pageName, elmnt, color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+}
+var vards="";
+var punkti=0;
+var punkti1=0;
+var c ; 
+
+var array = "";
+var skaits = "";
+var stripas = "";
+async function spele(c,id) {
+    document.getElementById('buttonContainer').innerHTML = "";
+    vards = await randomVards();
+    var sajaukts = sajauc(vards);
+    console.log(sajaukts);
+    console.log(vards);
+    if (id === 'sakt') {
+        createHelp(vards);
+    }
+    array = vards.slice();
+
+    createButtons(sajaukts);
+    if (c === true) {
+          sakt();
+    }
+function createHelp(rinda) {
+    const uzvedne = document.getElementById("uzved");
+    const teksts = document.getElementById("uzvedt");
+    const teksts1 = document.getElementById("uzvedt1");
+    skaits = Math.floor(rinda.length / 4);
+    uzvedne.classList.remove('paslepts');
+    teksts.innerHTML = "Tev ir palikušas " + skaits + " uzvednes";
+    console.log(skaits);
+    stripas = makeStripas(vards);
+    teksts1.innerHTML = stripas;
+
+}
+function help() {
+    if(skaits>0){
+    const teksts = document.getElementById("uzvedt");
+    const teksts1 = document.getElementById("uzvedt1");
+    let uzvedne = randomizeAndNullify();
+    stripas = aizvieto(stripas, vards, uzvedne);
+    console.log(vards);
+    teksts1.innerHTML = stripas;
+    skaits = skaits - 1;
+    teksts.innerHTML = "Tev ir palikušas " + skaits + " uzvednes";
+}else{
+    document.getElementById("uzvedb").disabled;
+}
+
+
+}
+function makeStripas(vards) {
+
+    let strip = "";
+    for (let i = 0; i < vards.length; i++) {
+        strip = strip + "_";
+    }
+    return strip;
+}
+function aizvieto(s, v, b) {
+
+    let rezultats = "";console.log(vards);
+    for (let i = 0; i < v.length; i++) {
+        
+        
+        if (v[i] === b) {
+            rezultats = rezultats + b;
+        } else {
+            rezultats = rezultats + s.charAt(i);
+        }
+    }
+    return rezultats;
+}
+function randomizeAndNullify() {
+
+    let randomIndex, randomValue;
+
+    // Ищем случайное значение, пока оно не станет null
+    do {
+        // Генерируем случайный индекс в пределах длины массива
+        randomIndex = Math.floor(Math.random() * array.length);
+        // Получаем случайное значение
+        randomValue = array[randomIndex];
+        console.log(randomValue);
+
+
+    } while (randomValue === null);
+    array.forEach((element, index) => {
+        if (element === randomValue) {
+            array[index] = null;
+        }
+    });
+    console.log(array);
+    console.log(randomValue);
+    return randomValue;
+
+}
+    
+    
+    
+}
+ 
+function sakt() {
+    countDownDate = new Date().getTime();
+    sus = setInterval(skaita, 1000);
+}
+function skaita() {
+    let now = new Date().getTime();
+    // Find the distance between now and the count down date
+    let distance = now - countDownDate;
+
+    // Time calculations for days, hours, minutes and seconds
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = 60 - Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+
+    if (distance > 60000) {
+        clearInterval(sus);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}
+async function randomVards() {
+    try {
+        const response = await fetch('https://random-word-form.repl.co/random/noun');
+        const dati = await response.json();
+        const datim = [];
+        for (var i = 0; i < dati[0].length; i++) {
+            datim[i] = dati[0][i];
+        }
+        return datim;
+    } catch (error) {
+        console.error('Kļūda vārda saņemšanas procesā:', error);
+    }
+}
+
+function sajauc(a) {
+    let randomPairs = [];
+
+    for (let i = 0; i < a.length; i++) {
+        let nr = Math.floor(Math.random() * 100);
+        randomPairs[i] = {"index": i, "random": nr};
+    }
+
+    randomPairs.sort(function (a, b) {
+        return a.random - b.random;
+    });
+
+    let sajaukts = [];
+    for (let i = 0; i < a.length; i++) {
+        sajaukts.push(a[randomPairs[i]["index"]]);
+    }
+
+    return sajaukts;
+}
+function createButtons(saj) {
+    const buttonContainer = document.getElementById('buttonContainer');
+    const pogas = saj;
+    for (var i = 0; i < pogas.length; i++) {
+        const button = document.createElement('div');
+        button.classList.add('button');
+        button.setAttribute('draggable', true);
+        button.setAttribute('data-index', i);
+        button.innerText = pogas[i];
+        buttonContainer.appendChild(button);
+    }
+
+    // Pievieno notikumus pārvietošanai un pārbaudei
+    let draggedButton = null;
+
+    buttonContainer.addEventListener('dragstart', (e) => {
+        if (e.target.classList.contains('button')) {
+            draggedButton = e.target;
+            draggedButton.style.opacity = '0.5';
+        }
+    });
+
+    buttonContainer.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        const target = e.target;
+        const isButton = target.classList.contains('button');
+        const isContainer = target.classList.contains('container');
+        if (isButton || isContainer) {
+            const targetRect = target.getBoundingClientRect();
+            const offsetX = e.clientX - targetRect.left;
+            const offsetY = e.clientY - targetRect.top;
+
+            const halfway = isButton ? (offsetX > targetRect.width / 2) : true;
+            const nextButton = isButton ? target : null;
+
+            if (nextButton && nextButton !== draggedButton.nextSibling) {
+                buttonContainer.insertBefore(draggedButton, halfway ? nextButton.nextSibling : nextButton);
+            } else if (isContainer && !isButton) {
+                buttonContainer.appendChild(draggedButton);
+            }
+        }
+    });
+ 
+
+    buttonContainer.addEventListener('dragend', (e) => {
+        if (draggedButton) {
+            draggedButton.style.opacity = '1';
+            draggedButton = null;
+        }
+
+        if (checkOrder()) {
+            alert('Pareizā secībā!');
+            punkti1 = vards.length;
+            funkpunkti(punkti1);
+            spele(false);
+        }
+    });
+}
+   //var punkti;
+    //var punkti1;
+ 
+function funkpunkti(a){
+    
+     punkti = punkti + a;
+    document.getElementById("punktip").innerHTML = punkti + " " +"punkti" ;
+    
+    
+}
+function checkOrder() {
+    const buttons = document.querySelectorAll('.button');
+    for (let i = 0; i < vards.length; i++) {
+        if (buttons[i].innerText !== vards[i]) {
+            return false;
+        }
+    }
+    
+    
+    return true;
+    
+}
+   
+
+  
+ 
+

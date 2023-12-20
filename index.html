@@ -1,0 +1,194 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link  href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            h1 {
+                text-align: center;
+            }
+            h2 {
+                text-align: center;
+            }
+
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+                font-family: "ArcadeClassic", sans-serif;
+
+            }
+            .paslepts {
+                display: none;
+            }
+            .redzams{
+                display: block;
+            }
+            .lapas{
+                font-family: verdana;
+
+                font-size: 20px;
+            }
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .button {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                cursor: grab;
+                user-select: none;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            
+        </style>
+
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="shortcut icon" href="img/favicon.ico">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>');</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Word game</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-right" role="form">
+                        <button type="button" class="btn btn-success" id="home" onclick = "myHome()" >Home</button>
+                        <button type="button" class="btn btn-success" id="casual" onclick = "myCasual()">Casual</button>
+                        <button type="button" class="btn btn-success" id="comp" onclick = "myCompetitive()">Competitive</button>
+                        <button type="button" class="btn btn-success" id="lead" onclick = "myLeader()">Leaderboards</button>
+                        <button type="button" class="btn btn-success" id="rules" onclick = "myRules()">Rules</button>
+                    </form>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+
+                <script>
+
+
+
+
+                </script>
+
+
+                <div id = "div1" style ="display:none" >
+                    awefgawfawfg
+                </div>
+
+
+                <div id="homep" class="paslepts lapas">
+                    <h2 >WELCOME TO</h2>
+                    <p></p>
+                    <h1 >"Burtu kārtošanas spēle"</h1>
+                </div>
+
+                <div id="casualp" class="paslepts lapas">
+                    <button type="button" class="btn btn-success" id="sakt2" onclick = "spele(true)"  >Sākt jaunu spēli</button>
+
+                </div>
+
+                <div id="compp" class="paslepts lapas">
+                    <button type="button" class="btn btn-success" id="sakt" onclick = "spele(true)"   >Sākt jaunu spēli</button>
+                    
+                    <p id="demo"></p>
+                    <p id = "punktip"> </p>
+                    <div id="uzved" class ="paslepts">
+                        <p id="uzvedt"></p>
+                        <p id="uzvedt1"></p>
+                        <button type="button" class="btn btn-success" id="uzvedb" onclick = "help()"  >Dabūt burtu</button>
+                    </div>
+
+                </div>
+
+                <div id="leadp" class="paslepts lapas">leaderboard</div>
+
+                <div id="rulep" class="paslepts lapas">
+                    <h1>The Rules</h1>
+                    <h2>1)Organize the given letter's into an english word</h2>
+                    <h2>2)You have 60 seconds to make as many words as you can</h2>
+                    <h2>3)You gain points for each word you complete</h2>
+                    <h2>4)Your objective is to gather as many points as you can to get the top score</h2>
+                    <h2>5)Have Fun</h2>
+                </div>
+                <div id="buttonContainer" class="container"></div>
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="jumbotron">
+                    <div class="container">
+                        <script id="background1">
+                            myHome();
+                        </script>
+
+
+                        <span id="homep" class="paslepts">home</span>
+                        <br>
+                        <span id="casualp" class="paslepts">casual</span>
+                        <br>
+                        <span id="compp" class="paslepts">comp</span>
+                        <br>
+                        <span id="leadp" class="paslepts">leader</span>
+                        <br>
+                        <span id="rulep" class="paslepts">rule</span>
+                        <br>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="container">
+                    <!-- Example row of columns -->
+
+
+                    <hr>
+
+                    <footer>
+                        <p>&copy; Company 2023</p>
+                    </footer>
+                </div> <!-- /container -->       
+
+
+                </body>
+                </html>
