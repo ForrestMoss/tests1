@@ -98,17 +98,100 @@ function openPage(pageName, elmnt, color) {
 var vards="";
 var punkti=0;
 var punkti1=0;
-var c ;  
-async function spele(c) {
+var c ; 
+
+var array = "";
+var skaits = "";
+var stripas = "";
+async function spele(c,id) {
     document.getElementById('buttonContainer').innerHTML = "";
     vards = await randomVards();
     var sajaukts = sajauc(vards);
     console.log(sajaukts);
     console.log(vards);
+    if (id === 'sakt') {
+        createHelp(vards);
+    }
+    array = vards.slice();
+
     createButtons(sajaukts);
     if (c === true) {
           sakt();
     }
+function createHelp(rinda) {
+    const uzvedne = document.getElementById("uzved");
+    const teksts = document.getElementById("uzvedt");
+    const teksts1 = document.getElementById("uzvedt1");
+    skaits = Math.floor(rinda.length / 4);
+    uzvedne.classList.remove('paslepts');
+    teksts.innerHTML = "Tev ir palikušas " + skaits + " uzvednes";
+    console.log(skaits);
+    stripas = makeStripas(vards);
+    teksts1.innerHTML = stripas;
+
+}
+function help() {
+    if(skaits>0){
+    const teksts = document.getElementById("uzvedt");
+    const teksts1 = document.getElementById("uzvedt1");
+    let uzvedne = randomizeAndNullify();
+    stripas = aizvieto(stripas, vards, uzvedne);
+    console.log(vards);
+    teksts1.innerHTML = stripas;
+    skaits = skaits - 1;
+    teksts.innerHTML = "Tev ir palikušas " + skaits + " uzvednes";
+}else{
+    document.getElementById("uzvedb").disabled;
+}
+
+
+}
+function makeStripas(vards) {
+
+    let strip = "";
+    for (let i = 0; i < vards.length; i++) {
+        strip = strip + "_";
+    }
+    return strip;
+}
+function aizvieto(s, v, b) {
+
+    let rezultats = "";console.log(vards);
+    for (let i = 0; i < v.length; i++) {
+        
+        
+        if (v[i] === b) {
+            rezultats = rezultats + b;
+        } else {
+            rezultats = rezultats + s.charAt(i);
+        }
+    }
+    return rezultats;
+}
+function randomizeAndNullify() {
+
+    let randomIndex, randomValue;
+
+    // Ищем случайное значение, пока оно не станет null
+    do {
+        // Генерируем случайный индекс в пределах длины массива
+        randomIndex = Math.floor(Math.random() * array.length);
+        // Получаем случайное значение
+        randomValue = array[randomIndex];
+        console.log(randomValue);
+
+
+    } while (randomValue === null);
+    array.forEach((element, index) => {
+        if (element === randomValue) {
+            array[index] = null;
+        }
+    });
+    console.log(array);
+    console.log(randomValue);
+    return randomValue;
+
+}
     
     
     
